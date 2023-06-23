@@ -25,7 +25,7 @@ class TestStudent < Student
 
   def rentals
     rental = @rentals
-    each = rental.map { |rental| rental.book.title }
+    each = rental.map { |each_book| each_book.book.title }
     puts "The student '#{name}' has rented '#{rental.length}' book(s) & those are the following: #{each}"
   end
 end
@@ -58,48 +58,65 @@ class TestBook < Book
     super(person, date)
     puts "The book '#{title}' has been added to '#{person.name}' rentals on '#{date}'"
   end
-end
 
-# Rentals Testing
-class TestRental < Rental
-  def initialize(date, book, person)
-    super(date, book, person)
-    puts "The book '#{book.title}' has been rented by '#{person.name}' on '#{date}'"
-  end
-
-  def belongs_to
-    puts "The book '#{book.title}' has been rented by '#{person.name}' on '#{date}'"
+  def many_rentals
+    puts "The book '#{title}' has been rented '#{rentals.length}' time(s)"
   end
 end
 
-# Create a new student
-student = TestStudent.new(18, 'John Doe')
+# Create new students
+puts '--------- create new students ---------'
+student1 = TestStudent.new(18, 'John Doe')
+student2 = TestStudent.new(17, 'Maryanne Smith')
+puts ''
 
 # Create a new classroom
+puts '--------- create new classroom ---------'
 maths = TestClassroom.new('Maths')
+spanish = TestClassroom.new('Spanish')
+puts ''
 
 # Add student to classroom
-student.student_classroom(maths)
+puts '--------- add students to classrooms ---------'
+student1.student_classroom(maths)
+student2.student_classroom(spanish)
+puts ''
 
 # Check if student belongs to classroom
-student.belongs_to
+puts '--------- student belongs to a classroom? ---------'
+student1.belongs_to
+student2.belongs_to
+puts ''
 
 # How many students does the classroom have?
+puts '--------- how many students does the classroom have? ---------'
 maths.many?
+spanish.many?
+puts ''
 
-# Create a new book
-book_1 = TestBook.new('100 Years Of Loneliness', 'Gabriel Garcia Marquez')
-book = TestBook.new('Baldor Mathematics', 'Aurelio Baldor')
+# Create books
+puts '--------- create new books ---------'
+years = TestBook.new('100 Years Of Loneliness', 'Gabriel Garcia Marquez')
+baldor = TestBook.new('Baldor Mathematics', 'Aurelio Baldor')
+lord = TestBook.new('The Lord Of The Rings', 'J. R. R. Tolkien')
+puts ''
 
-# Add rental to book
-book_1.add_rental(student, '2021-01-01')
-
-# Student rents a book
-student.add_rental(book, '2021-01-01')
-
-# Student rentals
-student.rentals
+# Student rents books
+puts '--------- student rents books ---------'
+student1.add_rental(baldor, '01-15-2023')
+student1.add_rental(years, '01-16-2023')
+student2.add_rental(lord, '01-20-2023')
+puts ''
 
 # How many times the book has been rented?
-book_1.many_rentals
-book.many_rentals
+puts '--------- how many times the book has been rented? ---------'
+years.many_rentals
+baldor.many_rentals
+lord.many_rentals
+puts ''
+
+# How many books has the student rented?
+puts '--------- how many books has the student rented? ---------'
+student1.rentals
+student2.rentals
+puts ''
