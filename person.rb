@@ -1,4 +1,4 @@
-require './nameable'
+require_relative 'nameable'
 
 class Person < Nameable
   attr_reader :id
@@ -10,6 +10,12 @@ class Person < Nameable
     @age = age
     @name = name
     @parent_permission = parent_permission
+    @rentals = []
+  end
+
+  def add_rental(book, date)
+    rental = Rental.new(date, book, self)
+    @rentals << rental
   end
 
   def can_use_services?
