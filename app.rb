@@ -110,8 +110,8 @@ class App
       print 'No rentals asign to that id'
     else
       @rentals_list.each do |rental|
+        puts '-----------------List-of-rentals-----------------'
         if rental.person.id == person_id
-          puts '-----------------List-of-rentals-----------------'
           puts "Date: #{rental.date}, Book #{rental.book.title} by #{rental.book.author}"
         end
       end
