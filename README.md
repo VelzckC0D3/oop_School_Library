@@ -13,7 +13,6 @@
   - [🛠 Built With](#built-with)
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
-  - [🚀 Test Case Preview](#live-demo)
 - [💻 Getting Started](#getting-started)
   - [Setup](#setup)
   - [Prerequisites](#prerequisites)
@@ -55,14 +54,9 @@ Imagine that you are the librarian of OOP University, and you need a tool to rec
 
 ### Key Features <a name="key-features"></a>
 
-  - **[Working on new features]** As this project evolves I'll be adding more information about the features here
+  - **[UI & Data Management]** Clear UI to manage all the data within the application
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- LIVE DEMO -->
-
-## 🚀 IRB Test Case preview <a name="live-demo"></a>
-[this will be added in the future]
  
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
